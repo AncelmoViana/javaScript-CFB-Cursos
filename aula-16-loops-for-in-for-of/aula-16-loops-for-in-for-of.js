@@ -1,11 +1,13 @@
+let num =[10,20,30,40,50];
 
-console.log("Inicio do programa");
-for(let i=1; i<=100; i++){
-   if(i%2 == 0){
-      console.log(i + " é par");
-   }
-   else{
-      console.log(i + " é Impar");
-   }
+for(let i=0; i<num.length; i++){
+   console.log(num[i]);
 }
-console.log("Fim do programa");
+
+for(n in num){
+   console.log("for in " + num[n])
+}
+
+for(n of num){
+   console.log("for of " + n);
+}
