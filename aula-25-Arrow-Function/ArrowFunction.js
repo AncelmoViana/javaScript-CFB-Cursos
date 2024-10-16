@@ -1,14 +1,11 @@
-const f=function(...valores){
-   let res = 0;
-   for(v of valores){
-      res += v;
-   }
-   return res;
-}
 
-console.log(f(10,5, 6, 90 ));
+console.log("função anônima tradicional");
 
+const soma = function(v1, v2){return v1 + v2}
+console.log(soma(5,8));
 
-const s=new Function("v1","v2", "return v1+v2") // função construtor anonima.
+console.log("Funçao anônima com Arrow function");
 
-console.log(s(10,5,15));
+const soma2 = (v2, v3) => {return v2 + v3};
+
+console.log(soma(5,10))
