@@ -1,13 +1,17 @@
-const soma = ( ...valores) => {
-     const somar = val =>{
-        let res = 0
-        for (v of val){
-            res += v
-        }
-        return res;
-     }
-     return somar(valores);
+function* cores(){
+    yield "Vermelho";
+    yield "Verde";
+    yield "Azul";
 }
-console.log(soma(10,50,40))
 
- 
+const itc = cores();
+console.log("Primeira chamada da função")
+console.log(itc.next().value);
+
+console.log("Segunda chamada da função")
+console.log(itc.next().value);
+
+console.log("Terceira chamada da função")
+console.log(itc.next().value);
+
+
