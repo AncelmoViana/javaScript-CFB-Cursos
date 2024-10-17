@@ -1,11 +1,13 @@
+const soma = ( ...valores) => {
+     const somar = val =>{
+        let res = 0
+        for (v of val){
+            res += v
+        }
+        return res;
+     }
+     return somar(valores);
+}
+console.log(soma(10,50,40))
 
-console.log("função anônima tradicional");
-
-const soma = function(v1, v2){return v1 + v2}
-console.log(soma(5,8));
-
-console.log("Funçao anônima com Arrow function");
-
-const soma2 = (v2, v3) => {return v2 + v3};
-
-console.log(soma(5,10))
+ 
