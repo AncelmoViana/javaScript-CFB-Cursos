@@ -17,12 +17,12 @@
 
 // const val = Array.prototype.map.call(el, ({innerHTML}) => innerHTML);
 
-// console.log(val)
+console.log(val)
 
-// const converterInt = (e) => parseInt(e);
-// let num = ['1', '2', '3' , '4', '5'].map(converterInt);
+const converterInt = (e) => parseInt(e);
+let num = ['1', '2', '3' , '4', '5'].map(converterInt);
 
-// console.log(num);
+console.log(num);
 
 
 const pessoas = [
