@@ -1,17 +1,20 @@
-const numbers = [1, 2, 3, 4];
+let elementos = [...document.querySelectorAll("div")];
+let num = 0;
+console.log("método map");
+elementos.map((e) =>{
+    num += 1;
+    
+    e.innerHTML = 'elemento alterado ' + num;
+   
+})
 
-const twice = numbers.map((number) => number * 2);
+num = 0;
+for(el of elementos){
+    num++;
+    if(num == 9){
+        console.log(el.innerHTML);
+    }
+}
 
-console.log(twice);
-
-console.log("\n \n \n \nOutro Exemplo\n");
-
-const users = [
-    {id: 1, name: 'John'},
-    {id: 2, name: 'Ancelmo'},
-    {id: 3, name: 'Pedro'}
-];
-
-console.log(users.map((user) =>user.name))
 
 
