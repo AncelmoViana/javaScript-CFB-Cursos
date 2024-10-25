@@ -55,6 +55,8 @@ cursos.map((e)=>{
         }
     })
     botaoLimpar.addEventListener("click", ()=>{
+        e.classList.remove("destaque");
+
        c1.classList.remove("c--1")
        d1.style.display = "none";
 
