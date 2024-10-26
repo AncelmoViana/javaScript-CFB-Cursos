@@ -54,14 +54,20 @@
 button{
     height: 30px;
     width: 80px;
-    background-color: rgb(56, 56, 230);
+    background-color: rgb(57, 57, 226);
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    background-color: gray;
+   
    
 
+}
+button:active{
+    background-color: rgba(57, 57, 226, 0.74);
+}
+#botao-limpar:active{
+    background-color: rgba(238, 86, 86, 0.705);
 }
 #botao-limpar{
     background-color: rgb(238, 86, 86);
