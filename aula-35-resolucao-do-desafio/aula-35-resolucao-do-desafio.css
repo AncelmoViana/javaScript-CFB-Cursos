@@ -1,85 +1,19 @@
-.container-pai{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+*{
+    padding: 0px;
+    margin: 0px;
+    border: none;
 }
-
-.curso, .curso2{
+main{
     display: flex;
     justify-content: center;
-    width: 70%;
-    min-width: 100px;
-    border: 4px solid #888;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px 0px;
-    cursor: pointer;
-    
-}
-.curso:hover, .curso2:hover{
-    border-color: #f00;
-}
-.curso2{
-    display: none;
-}
-.curso2-2{
-    display: none !important;
-}
-
-
-.c1{
-    background-color: #ccc;
-    color: #444;
-}
-
-
-.container-filho{
-    display: flex;
-    flex-direction: column;
-    border: 4px solid black;
-    width: 40%;
-    min-width: 100px;
-    height: 500px;
     align-items: center;
-    padding-top: 50px;
-}
-.botoes{
-   
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    width: 100%;
 }
 button{
-    height: 30px;
-    width: 80px;
-    background-color: rgb(57, 57, 226);
-    color: #ffffff;
-    font-weight: bold;
+    width: 150px;
+    height: 40px;
+    background-color: #025;
+    color: #fff;
     cursor: pointer;
-    border-radius: 5px;
-   
-   
-
+    border-radius: 10px;
 }
-button:active{
-    background-color: rgba(57, 57, 226, 0.74);
-}
-#botao-limpar:active{
-    background-color: rgba(238, 86, 86, 0.705);
-}
-#botao-limpar{
-    background-color: rgb(238, 86, 86);
-}
-
-
-
-.destaque{
-    background-color: #800 !important;
-    color: #fcc !important;
-    border-color: #f00 !important;
-
-}
-
-
