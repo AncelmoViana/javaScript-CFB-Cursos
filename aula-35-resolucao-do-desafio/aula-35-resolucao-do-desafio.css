@@ -9,12 +9,7 @@ main{
     align-items: center;
     width: 100%;
 }
-.botoes{
-    display: flex;
-    flex-direction: column;
-    height: 100px;
-    justify-content: space-around;
-}
+
 button{
     width: 100px;
     height: 40px;
