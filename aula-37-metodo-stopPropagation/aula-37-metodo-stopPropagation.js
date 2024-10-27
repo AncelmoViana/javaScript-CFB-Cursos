@@ -1,39 +1,6 @@
 const caixa1 = document.querySelector("#caixa1");
-const caixa2 = document.querySelector("#caixa2");
-const btn_transferir = document.querySelector("#btn_copiar");
+//const btn_c1 = document.querySelector("#c1");
 
-
-
-
-const todosCursos = [...document.querySelectorAll(".curso")];
-
-todosCursos.map((el)=>{
-    el.addEventListener("click", (evt)=>{
-        const curso=evt.target;
-        curso.classList.toggle("selecionado");
-        
-    })
-    btn_transferir.addEventListener("click", ()=>{
-    if(el.classList.contains("selecionado")){
-        caixa2.appendChild(el);
-    }
-    else{
-        caixa1.appendChild(el);
-    }
-    
+caixa1.addEventListener("click", ()=>{
+    console.log("clicou")
 })
-
-})
-//Outra forma de resolver o problema.
-// btn_transferir.addEventListener("click", ()=>{
-//     const cursosSelecionados = [...document.querySelectorAll(".selecionado")];
-//     // const cursosNaoSelecionados = [...document.querySelectorAll(".curso:not(.selecionado)")]
-   
-//     // cursosSelecionados.map((el)=>{
-//     //     caixa2.appendChild(el);
-//     // })
-//     // cursosNaoSelecionados.map((el) => {
-//     //     caixa1.appendChild(el);
-//     // })
-    
-// })
