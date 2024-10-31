@@ -23,13 +23,14 @@ button:active{
 }
 .curso{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     width: 200px;
     border: 4px solid #888;
     border-radius: 10px;
     padding: 10px;
     margin: 5px 0px;
-    cursor: pointer;
+   
 }
 .selecionado{
     background-color: #800 !important;
@@ -55,4 +56,8 @@ button:active{
     margin: 5px;
     height: 500px;
     width: 300px;
+}
+.btn_lixeira{
+    width: 25px;
+    cursor: pointer;
 }
