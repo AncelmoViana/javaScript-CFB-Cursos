@@ -5,7 +5,7 @@ const btn_c = [...document.querySelectorAll(".cursos")];
 const c1_2 = document.querySelector("#c1_2");
 
 const cursos =["HTML","CSS","Javascript","PHP", "React","MySQL","ReactNative"];
-const btnCursoSelecionado = document.getElementById("btnCursoSelecionado");
+const btnCursoSelecionado = document.getElementById("btnCursoSelecionado")
 
 cursos.map((el,chave)=>{
   const novoElemento = document.createElement("div");
