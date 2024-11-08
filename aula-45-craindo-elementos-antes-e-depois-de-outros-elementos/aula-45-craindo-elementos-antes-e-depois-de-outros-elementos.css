@@ -56,6 +56,7 @@ button:active{
     margin: 5px;
     height: 500px;
     width: 300px;
+   
 }
 .btn_lixeira{
     width: 25px;
@@ -66,8 +67,7 @@ button:active{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5px;
-    
+    width: 100%;
 }
 .comandos{
     width: 30%;
@@ -75,6 +75,11 @@ button:active{
     align-items: center;
 }
 #caixaNovoCurso input{
-    margin: 10px;
+    margin: 5px;
     padding: 5px;
+    width: 70%;
+}
+button{
+ width: 70%;
+ margin: 5px;
 }

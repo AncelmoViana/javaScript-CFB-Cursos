@@ -7,13 +7,20 @@ const c1_2 = document.querySelector("#c1_2");
 const cursos =["HTML","CSS","Javascript","PHP", "React","MySQL","ReactNative"];
 const btnCursoSelecionado = document.getElementById("btnCursoSelecionado");
 
-const btnRemoveCurso = document.getElementById("removerCurso")
+const btnRemoveCurso = document.getElementById("removerCurso");
 
-cursos.map((el,chave)=>{
+const btnAdicionarNovoAntes = document.getElementById("btnAdicionarNovoAntes");
+const btnAdicionarNovoDepois = document.getElementById("btnAdicionarNovoDepois");
+const nomeCurso = document.getElementById("nomeCurso");
+
+
+let indice = 0;
+
+const criarNovoCurso=(curso)=>{
   const novoElemento = document.createElement("div");
-  novoElemento.setAttribute("id","c"+chave);
+  novoElemento.setAttribute("id","c"+indice);
   novoElemento.setAttribute("class", "curso c1");
-  novoElemento.innerHTML = el;
+  novoElemento.innerHTML = curso;
 
   const comandos = document.createElement("div");
   comandos.setAttribute("class", "comandos");
@@ -23,7 +30,17 @@ cursos.map((el,chave)=>{
 
   comandos.appendChild(rb);
   novoElemento.appendChild(comandos);
+  return novoElemento;
+
+}
+
+cursos.map((el,chave)=>{
+
+  const novoElemento = criarNovoCurso(el);
+
+
   caixaCursos.appendChild(novoElemento)
+  indice++;
 })
 
 const radioSelecionado=()=>{
@@ -67,5 +84,54 @@ btnRemoveCurso.addEventListener("click", (evt)=>{
  
 
  
+
+})
+
+btnAdicionarNovoAntes.addEventListener("click", (evt)=>{
+  const rs = radioSelecionado();
+ 
+  if(rs!=undefined){
+    if(nomeCurso.value != ""){
+      const cursoSelecionado = rs.parentNode.parentNode;
+  
+      const novoCurso=criarNovoCurso(nomeCurso.value);
+      caixaCursos.insertBefore(novoCurso, cursoSelecionado)
+     
+    }
+    
+    else{
+      alert("Adicionar nome do curso!")
+      
+    }
+  
+    
+
+  }
+  else{
+    alert("Selecione um curso!")
+  }
+
+});
+btnAdicionarNovoDepois.addEventListener("click",(evt)=>{
+  const rs = radioSelecionado();
+  
+ 
+  if(rs!=undefined){
+    if(nomeCurso.value != ""){
+      const cursoSelecionado = rs.parentNode.parentNode.nextSibling;
+  
+      const novoCurso=criarNovoCurso(nomeCurso.value);
+      caixaCursos.insertBefore(novoCurso, cursoSelecionado)
+     
+    }
+    
+    else{
+      alert("Adicionar nome do curso!")
+      
+    }
+  }
+  else{
+    alert("Selecione um curso!")
+  }
 
 })
