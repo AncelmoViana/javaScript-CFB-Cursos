@@ -16,7 +16,7 @@ main{
     align-items: center;
     justify-content: center;
     width: 40%;
-    height: 500px;
+    height: 95vh;
     border: solid 3px gray;
 }
 #input-e-botoes{
@@ -67,7 +67,7 @@ button:active{
 .cursos:hover{
     background-color: rgba(128, 128, 128, 0.788);
 }
-#radio{
+.radio{
     width: 15px;
    
 }
