@@ -1,152 +1,55 @@
-const caixaElementos = document.getElementById("caixaElementos");
-const cursos = ["HTML", "CSS", "Javascript", "python", "MySQL"];
+const caixaElementos=document.getElementById("caixaElementos");
+const cursos= ["test1", "teste2"];
 
- let indice = 0;
- const criarCurso = (curso)=>{
-    const novoCurso = document.createElement("div");
-    novoCurso.innerHTML = curso;
-    novoCurso.setAttribute("id", "c"+indice);
-    novoCurso.setAttribute("class", "cursos");
-   
+
+let indice = 0;
+const criarCursos=(curso)=>{
+    const novoElemento = document.createElement("div");
+    novoElemento.setAttribute("id", "c"+indice);
+    novoElemento.setAttribute("class", "cursos")
+    novoElemento.innerHTML = curso;
 
     const radio = document.createElement("input");
     radio.setAttribute("type", "radio");
     radio.setAttribute("class", "radio");
     radio.setAttribute("name", "radio")
-    novoCurso.appendChild(radio);
+    novoElemento.appendChild(radio);
 
-    return novoCurso;
- }
+    return novoElemento;
 
+    
 
-cursos.map((el)=>{
-
-    const novoElemento = criarCurso(el);
-
-    caixaElementos.appendChild(novoElemento);
    
-  
-
-    
-})
-
-const radioSelecionado=()=>{
-    const todosCursos =[...document.querySelectorAll("input[type=radio]")]
-      
-    let radio = todosCursos.filter((el)=>{
-        return el.checked;
-    })
-    return  radio[0];
-    
-    
-
 }
 
-
-
-const cursoSelecionado = document.getElementById("cursoSelecionado");
-
-cursoSelecionado.addEventListener("click", (evt)=>{
-    const rs = radioSelecionado();
-    if(rs!=undefined){
-        alert(rs.parentNode.firstChild.textContent)
-
-    }
-    else{
-        alert("Selecione um Curso!")
-    }
-
-    
-
+cursos.map((el)=>{
+    const novoElemento = criarCursos(el);
+    caixaElementos.appendChild(novoElemento);
+    indice++;
 
    
-
-     
-})
-
-const apagarCurso = document.getElementById("apagarCurso");
-
-apagarCurso.addEventListener("click", (evt)=>{
-    let rs = radioSelecionado();
-   
-    if(rs!=undefined){
-        rs = rs.parentNode
-        rs.remove();
-    }
-    else{
-        alert("Selecione um Curso")
-    }
-
 })
 
 
-const adicionarAntes = document.getElementById("adicionarAntes");
-const adicionarDepois = document.getElementById("adicionarDepois");
-let nomeCurso = document.getElementById("nomeCurso");
-
-adicionarAntes.addEventListener("click",(evt)=>{
-    const rs = radioSelecionado();
-
-    if(rs!=undefined){
-        if(nomeCurso.value != ""){
-            const cursoSelecionado = rs.parentNode;
-            const addcurso = criarCurso(nomeCurso.value);
-        
-            caixaElementos.insertBefore(addcurso, cursoSelecionado)
+const radioSelecionado =()=>{
+    let todosRadios = [...document.querySelectorAll("input[type=radio]")]
+    const radio = todosRadios.filter((el)=>{
+       return el.checked
+      
+    })
+    return radio[0];
     
-        }
-        else{
-            alert("Adicionar nome do Curso")
-        }
-       
-    }
-    else{
-        alert("Selecione um Curso")
-    }
-
-
-
     
-   
-})
-
-
-adicionarDepois.addEventListener("click",()=>{
-    const rs = radioSelecionado();
-
-
-    if(rs!=undefined){
-        if(nomeCurso.value!=""){
-            const cursoSelecionado = rs.parentNode.nextSibling;
-            const addcurso = criarCurso(nomeCurso.value);
-            caixaElementos.insertBefore(addcurso, cursoSelecionado)
-
-        }
-        else{
-            alert("Adicionar nome do Curso")
-        }
-       
-    }
-    else{
-        alert("Selecione um Curso")
-    }
-
     
-})
+}
+ const cursoSelecionado = document.getElementById("cursoSelecionado");
 
-const desmarcar = document.getElementById("desmarcar");
+ cursoSelecionado.addEventListener("click",()=>{
+    rs = radioSelecionado();
+    const cursoSelect = rs.parentNode.textContent
 
-desmarcar.addEventListener("click",()=>{
-    const rs=radioSelecionado();
-   
-    if(rs!=undefined){
-        rs.checked = false;
-    }
-
-})
-
-
-
+    alert(cursoSelect)
+ })
 
 
 
