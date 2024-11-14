@@ -48,7 +48,7 @@ const radioSelecionado =()=>{
     rs = radioSelecionado();
     const cursoSelect = rs.parentNode.textContent
 
-    alert(cursoSelect)
+
  })
 
 
