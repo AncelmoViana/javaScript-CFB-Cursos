@@ -47,6 +47,7 @@ const radioSelecionado =()=>{
  cursoSelecionado.addEventListener("click",()=>{
     rs = radioSelecionado();
     const cursoSelect = rs.parentNode.textContent
+    
 
 
  })
