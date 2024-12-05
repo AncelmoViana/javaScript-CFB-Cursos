@@ -16,20 +16,27 @@ const nomeCurso = document.getElementById("nomeCurso");
 
 let indice = 0;
 
+const tirarSelecao=()=>{
+  const cursosSelecionados=[...document.querySelectorAll(".selecionado")];
+  cursosSelecionados.map((el)=>{
+    
+    el.classList.remove("selecionado")
+  })
+}
+
 const criarNovoCurso=(curso)=>{
   const novoElemento = document.createElement("div");
   novoElemento.setAttribute("id","c"+indice);
   novoElemento.setAttribute("class", "curso c1");
   novoElemento.innerHTML = curso;
+  novoElemento.addEventListener("click",(evt)=>{
+    tirarSelecao();
+    evt.target.classList.toggle("selecionado")
+  })
 
   const comandos = document.createElement("div");
   comandos.setAttribute("class", "comandos");
-  const rb=document.createElement("input");
-  rb.setAttribute("type", "radio");
-  rb.setAttribute("name", "rb_curso")
-
-  comandos.appendChild(rb);
-  novoElemento.appendChild(comandos);
+  
   return novoElemento;
 
 }
@@ -43,40 +50,29 @@ cursos.map((el,chave)=>{
   indice++;
 })
 
-const radioSelecionado=()=>{
-  const todosRadios = [...document.querySelectorAll("input[type=radio]")];
-  const radioSelecionado=todosRadios.filter((el)=>{
-    return el.checked;
-  })
-  return radioSelecionado[0]
+const cursoSelecionado=()=>{
+  const cursosSelecionados=[...document.querySelectorAll(".selecionado")];
+  return cursosSelecionados[0];
 
-}
+} 
 
 btnCursoSelecionado.addEventListener("click", (evt)=>{
-  const rs = radioSelecionado();
- 
-  if(rs!=undefined){
- 
-    const cursoSelecionado = rs.parentNode.parentNode.firstChild.textContent;
-    alert(cursoSelecionado)
 
-  }
-  else{
-    alert("Selecione um curso!")
-  }
+ try{
+  alert("Curso Selecionado: "+cursoSelecionado().innerHTML)
+ }catch(ex){
+  alert("Selecione um curso")
+ }
  
  
 })
 
 btnRemoveCurso.addEventListener("click", (evt)=>{
-
-  const rs = radioSelecionado();
+  const rs = cursoSelecionado();
 
   if(rs!=undefined){
    
-    const rs = radioSelecionado();
-    const cursoSelecionado=rs.parentNode.parentNode;
-    cursoSelecionado.remove();
+    rs.remove();
   }
   else{
     alert("Selecione um curso!")
@@ -88,14 +84,13 @@ btnRemoveCurso.addEventListener("click", (evt)=>{
 })
 
 btnAdicionarNovoAntes.addEventListener("click", (evt)=>{
-  const rs = radioSelecionado();
+  const rs = cursoSelecionado();
  
   if(rs!=undefined){
     if(nomeCurso.value != ""){
-      const cursoSelecionado = rs.parentNode.parentNode;
-  
+    
       const novoCurso=criarNovoCurso(nomeCurso.value);
-      caixaCursos.insertBefore(novoCurso, cursoSelecionado)
+      caixaCursos.insertBefore(novoCurso, cursoSelecionado())
      
     }
     
@@ -113,15 +108,14 @@ btnAdicionarNovoAntes.addEventListener("click", (evt)=>{
 
 });
 btnAdicionarNovoDepois.addEventListener("click",(evt)=>{
-  const rs = radioSelecionado();
+  const rs = cursoSelecionado();
   
  
   if(rs!=undefined){
     if(nomeCurso.value != ""){
-      const cursoSelecionado = rs.parentNode.parentNode.nextSibling;
   
       const novoCurso=criarNovoCurso(nomeCurso.value);
-      caixaCursos.insertBefore(novoCurso, cursoSelecionado)
+      caixaCursos.insertBefore(novoCurso, cursoSelecionado().nextSibling)
      
     }
     
