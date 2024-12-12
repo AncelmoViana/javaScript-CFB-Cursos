@@ -1,131 +1,26 @@
-const caixaCursos = document.querySelector("#caixaCursos");
+ const p_array = document.querySelector("#array");
 
-const btn_c = [...document.querySelectorAll(".cursos")];
+ const txt_pesquisar = document.querySelector("#txt_pesquisar");
 
-const c1_2 = document.querySelector("#c1_2");
+ const btnPesquisar = document.querySelector("#btnPesquisar");
 
-const cursos =["HTML","CSS","Javascript","PHP", "React","MySQL","ReactNative"];
-const btnCursoSelecionado = document.getElementById("btnCursoSelecionado");
+ const resultado = document.querySelector("#resultado");
 
-const btnRemoveCurso = document.getElementById("removerCurso");
+ const elementos_array = [10,5,8,2,9,15,20,35,68,95,255];
 
-const btnAdicionarNovoAntes = document.getElementById("btnAdicionarNovoAntes");
-const btnAdicionarNovoDepois = document.getElementById("btnAdicionarNovoDepois");
-const nomeCurso = document.getElementById("nomeCurso");
+ p_array.innerHTML = "["+elementos_array+"]";
 
-
-let indice = 0;
-
-const tirarSelecao=()=>{
-  const cursosSelecionados=[...document.querySelectorAll(".selecionado")];
-  cursosSelecionados.map((el)=>{
-    
-    el.classList.remove("selecionado")
-  })
-}
-
-const criarNovoCurso=(curso)=>{
-  const novoElemento = document.createElement("div");
-  novoElemento.setAttribute("id","c"+indice);
-  novoElemento.setAttribute("class", "curso c1");
-  novoElemento.innerHTML = curso;
-  novoElemento.addEventListener("click",(evt)=>{
-    tirarSelecao();
-    evt.target.classList.toggle("selecionado")
-  })
-
-  const comandos = document.createElement("div");
-  comandos.setAttribute("class", "comandos");
+ btnPesquisar.addEventListener("click",(evt)=>{
+    resultado.innerHTML="Valor não encontrado"
+  const ret = elementos_array.find((e,i)=>{
   
-  return novoElemento;
-
-}
-
-cursos.map((el,chave)=>{
-
-  const novoElemento = criarNovoCurso(el);
-
-
-  caixaCursos.appendChild(novoElemento)
-  indice++;
-})
-
-const cursoSelecionado=()=>{
-  const cursosSelecionados=[...document.querySelectorAll(".selecionado")];
-  return cursosSelecionados[0];
-
-} 
-
-btnCursoSelecionado.addEventListener("click", (evt)=>{
-
- try{
-  alert("Curso Selecionado: "+cursoSelecionado().innerHTML)
- }catch(ex){
-  alert("Selecione um curso")
- }
- 
- 
-})
-
-btnRemoveCurso.addEventListener("click", (evt)=>{
-  const rs = cursoSelecionado();
-
-  if(rs!=undefined){
+    if(txt_pesquisar.value==e){
+      resultado.innerHTML = "Valor encontrado "+e+" na posição "+i;
+    }
    
-    rs.remove();
-  }
-  else{
-    alert("Selecione um curso!")
-  }
- 
-
- 
-
-})
-
-btnAdicionarNovoAntes.addEventListener("click", (evt)=>{
-  const rs = cursoSelecionado();
- 
-  if(rs!=undefined){
-    if(nomeCurso.value != ""){
     
-      const novoCurso=criarNovoCurso(nomeCurso.value);
-      caixaCursos.insertBefore(novoCurso, cursoSelecionado())
-     
-    }
-    
-    else{
-      alert("Adicionar nome do curso!")
-      
-    }
-  
-    
+   
+  })
+  console.log(ret);
 
-  }
-  else{
-    alert("Selecione um curso!")
-  }
-
-});
-btnAdicionarNovoDepois.addEventListener("click",(evt)=>{
-  const rs = cursoSelecionado();
-  
- 
-  if(rs!=undefined){
-    if(nomeCurso.value != ""){
-  
-      const novoCurso=criarNovoCurso(nomeCurso.value);
-      caixaCursos.insertBefore(novoCurso, cursoSelecionado().nextSibling)
-     
-    }
-    
-    else{
-      alert("Adicionar nome do curso!")
-      
-    }
-  }
-  else{
-    alert("Selecione um curso!")
-  }
-
-})
+ })
