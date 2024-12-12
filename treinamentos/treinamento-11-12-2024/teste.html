@@ -3,47 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>carregar</title>
+    <title>simbolo de carregando</title>
     <style>
         body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             width: 100vw;
-           
-           
-          
-            
-          
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         div{
             width: 200px;
             height: 200px;
+            border: 20px solid gray;
             border-radius: 50%;
-            border: 15px solid rgba(128, 128, 128, 0.555);
             border-bottom-color: white;
-            animation: girar 1.3s infinite linear;
-            
-        
+            animation: girar 1.5s infinite linear ;
         }
-        @keyframes girar{
-                from{
-                    transform: rotate(0deg);
-                }
-                to{
-                    transform: rotate(360deg);
-                }
-        
-        }
-               
 
+        @keyframes girar{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
-  
-        <div></div>
-    
+    <div>
+
+    </div>
     
 </body>
 </html>
