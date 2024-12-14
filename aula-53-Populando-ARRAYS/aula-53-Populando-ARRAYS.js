@@ -1,20 +1,26 @@
-const caixa=document.querySelector("#caixa")
+let valores=[10,5];
+const op=[
+    (val)=>{
+        let res=0;
+        for(v of val){
+            res+=v
+        }
+        return res;
+    },
+    (val)=>{
+        let res=1;
+        for(v of val){
+            res*=v
+        }
+        return res;
+    },
+    (val)=>{
 
-let num = [5,6,10,55,62, "teste"];
+        for(v of val){
+            console.log(v)
+        }
 
-let cores = ["azul", "verde", "vermelho", "violeta", "preto", "branco", num];
+    }
+];
 
-// cores.push("cinza");
-// cores.push("amareo");
-// cores.pop();
-// cores.pop();
-console.log(cores[6][5])
-cores.map((e,i)=>{
-    let p =document.createElement("p");
-    p.innerHTML=e;
-    caixa.appendChild(p);
-})
-
-
-
-
+console.log(op[0](valores))
