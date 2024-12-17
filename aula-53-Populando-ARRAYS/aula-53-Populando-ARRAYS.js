@@ -1,3 +1,7 @@
+let visor = document.getElementById("visor");
+let diminuir = document.getElementById("-");
+let dividir = document.getElementById("/");
+
 let valores=[10,5];
 const op=[
     (val)=>{
