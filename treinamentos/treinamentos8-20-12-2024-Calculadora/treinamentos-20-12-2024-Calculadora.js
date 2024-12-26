@@ -1,7 +1,10 @@
 const display = document.getElementById("display");
 
 function teclas_calculadora(input){
-    display.value += input;
+   
+        display.value += input;
+    
+    
 }
 function apagarDisplay(){
     display.value = "";
