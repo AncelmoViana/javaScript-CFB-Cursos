@@ -1,8 +1,15 @@
 const display = document.getElementById("display");
 
 function teclas_calculadora(input){
+    
+    if(display.value == "0"){
+        display.value=input;
+   }
+   else{
+    display.value += input;
+   }
+        
    
-        display.value += input;
     
     
 }
