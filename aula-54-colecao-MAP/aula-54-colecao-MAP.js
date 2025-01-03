@@ -1,19 +1,25 @@
 const caixa=document.querySelector("#caixa")
 
-let num = [5,6,10,55,62, "teste"];
 
-let cores = ["azul", "verde", "vermelho", "violeta", "preto", "branco", num];
+let mapa = new Map();
+mapa.set("Curso", "Javascript");
+mapa.set(10, "CFB Cursos");
+mapa.set(1,100);
+mapa.set("canal", 100);
+console.log(mapa)
+let pes = 10;
+if(mapa.has(pes)){
+    caixa.innerHTML = "A chave existe na coleçao com o Valor: "+mapa.get(pes);
+}
+else{
+    caixa.innerHTML = "A chave não existe na coleção";
+}
 
-// cores.push("cinza");
-// cores.push("amareo");
-// cores.pop();
-// cores.pop();
-console.log(cores[6][5])
-cores.map((e,i)=>{
-    let p =document.createElement("p");
-    p.innerHTML=e;
-    caixa.appendChild(p);
+mapa.forEach((el)=>{
+    console.log(el)
 })
+
+
 
 
 
