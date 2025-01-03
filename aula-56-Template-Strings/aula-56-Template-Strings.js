@@ -1,21 +1,15 @@
 const caixa=document.querySelector("#caixa")
 
+const carros = ["polo","T-cross", "golf", "hrv"];
 
-let musicas = new Set(['musica1','rock', 'blues', 'country']);
+let ul = `<ul>`;
+carros.map((el)=>{
+    ul+=`<li>${el}<li>`;
+})
+ul+=`<\ol>`
+caixa.innerHTML = ul
 
-musicas.add("musica very nice");
-musicas.add('musica55')
-
-console.log(musicas)
-
-// musicas.forEach((el)=>{
-//     caixa.innerHTML += el + "<br>"
-// })
-
-for(let m of musicas){
-    caixa.innerHTML += m + "<br>"
-
-}
+caixa.innerHTML = frase
 
 
 
