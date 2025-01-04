@@ -1,63 +1,59 @@
-class carro{
-    constructor(pnome,ptipo){
+class Pessoa{
+    constructor(pnome,pidade){
         this.nome=pnome;
-        if(ptipo==1){
-            this.tipo="Esportivo";
-            this.velmax = 300;
-        }
-        else if(ptipo==2){
-            this.tipo="Utilitário";
-            this.velmax = 100;
-        }
-        else if(ptipo==3){
-            this.tipo="Passeio";
-            this.velmax = 160;
-        }
-        else{
-            this.tipo="Militar";
-            this.velmax = 180;
-        }
+        this.idade=pidade;
+       
     }
     getNome(){
         return this.nome;
     }
-    getTipo(){
-        this.tipo;
+    getIdade(){
+        return this.idade
     }
-    getVelMax(){
-        return this.velmax;
+    setNome(nome){
+        this.nome=nome;
     }
+    setIdade(idade){
+        this.idade=idade;
+    }
+
+
+    
+    
     info(){
         console.log("Nome: "+ this.nome);
-        console.log("Tipo: "+ this.tipo);
-        console.log("V.Max: "+ this.velmax);
-    }
-    getInfo(){
-        return [this.nome,this.tipo,this.velmax]
+        console.log("Idade: "+ this.idade);
+        console.log("----------------------")
+     
     }
 }
+let pessoas = [];
+const btn_add=document.querySelector("#btn_add");
 
-let c1 = new carro("rapido", 1);
-let c2 = new carro("Super Luxo", 2);
-let c3 = new carro("bombadão", 4);
-let c4 = new carro("Carrega tudo", 3);
+const res=document.querySelector(".res");
 
-console.log(c3.getInfo());
+const addPessoa=()=>{
+    res.innerHTML="";
+    pessoas.map((p)=>{
+        const div=document.createElement("div");
+        div.setAttribute("class", "pessoa");
+        div.innerHTML=`Nome:${p.getNome()}<br>Idade:${p.getIdade()}`;
+        res.appendChild(div)
+    })
+}
+
+btn_add.addEventListener("click",(evt)=>{
+    const nome = document.querySelector("#f_nome");
+    const idade = document.querySelector("#f_idade");
+
+    const p=new Pessoa(nome.value,idade.value);
+    pessoas.push(p);
+    nome.value="";
+    idade.value="";
+    nome.focus();
+    console.log(pessoas)
+    addPessoa();
 
 
-// console.log("Nome: "+c1.nome+" Tipo: "+c1.tipo+" Velocidade Maxima: "+c1.velmax);
-
-// console.log("Nome: "+c2.nome+" Tipo: "+c2.tipo+" Velocidade Maxima: "+c2.velmax);
-
-
-// console.log("Nome: "+c3.nome+" Tipo: "+c3.tipo+" Velocidade Maxima: "+c3.velmax);
-
-
-// console.log("Nome: "+c4.nome+" Tipo: "+c4.tipo+" Velocidade Maxima: "+c4.velmax);
-
-
-
-
-
-
-
+});
+  
