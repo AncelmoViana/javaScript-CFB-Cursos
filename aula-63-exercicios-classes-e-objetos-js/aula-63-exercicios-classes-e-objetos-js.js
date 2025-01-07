@@ -1,3 +1,66 @@
+const f_tipoMilitar=document.querySelector("#f_tipoMilitar");
+const f_tipoNormal=document.querySelector("#f_tipoNormal")
+const f_blindagem=document.querySelector("#f_blindagem")
+const f_municao=document.querySelector("#f_municao")
+const carros=document.querySelector(".carros")
+const btn_addCarro=document.querySelector("#btn_addCarro")
+const f_nome=document.querySelector("#f_nome")
+const f_portas=document.querySelector("#f_portas")
+
+let a_carros=[]
+
+
+
+f_tipoMilitar.addEventListener("click",(evt)=>{
+    console.log("Militar")
+    f_blindagem.removeAttribute("disabled")
+    f_municao.removeAttribute("disabled")
+    f_nome.value=""
+    f_portas.value=0;
+})
+f_tipoNormal.addEventListener("click",(evt)=>{
+    console.log("Normal")
+    f_blindagem.setAttribute("disabled","disabled")
+    f_municao.setAttribute("disabled", "disabled")
+    f_blindagem.value=0;
+    f_municao.value=0;
+    f_nome.value=""
+    f_portas.value=0;
+})
+
+const gerenciarCarros=()=>{
+    carros.innerHTML="";
+    
+    a_carros.forEach((c)=>{
+        const div=document.createElement("div")
+        div.setAttribute("class", "carro")
+        div.innerHTML=`Nome: ${c.nome}<br>`
+        div.innerHTML+=`Portas: ${c.portas}<br>`
+        div.innerHTML+=`Blindagem: ${c.blindagem}<br>`
+        div.innerHTML+=`Munição: ${c.municao}<br>`
+
+        carros.appendChild(div)
+
+    })
+    
+
+}
+btn_addCarro.addEventListener("click",()=>{
+    if(f_tipoNormal.checked){
+        const c=new Carro(f_nome.value,f_portas.value)
+        a_carros.push(c)
+       
+    }
+    else{
+        const c=new Militar(f_nome.value,f_portas.value,f_blindagem.value,f_municao.value)
+        a_carros.push(c)
+    }
+    
+    gerenciarCarros()
+})
+
+
+
 class Carro{//classe Pai
     constructor(nome, portas){
         this.nome=nome;
@@ -35,7 +98,12 @@ const c1=new Carro("Normal", 4)
 c1.ligar()
 c1.setCor("preto")
 
-const c2=new Militar("Lutador",6,100,50)
+const c2=new Militar("Lutador",1,100,50)
+c2.atirar()
+c2.atirar()
+c2.atirar()
+c2.atirar()
+c2.atirar()
 
 console.log(`Nome: ${c1.nome}`)
 console.log(`Portas: ${c1.portas}`)
