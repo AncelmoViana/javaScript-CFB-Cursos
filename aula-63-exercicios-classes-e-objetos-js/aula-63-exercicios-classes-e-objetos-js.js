@@ -33,13 +33,17 @@ const gerenciarCarros=()=>{
     
     a_carros.forEach((c)=>{
         const div=document.createElement("div")
+        const btn=document.createElement("button")
         div.setAttribute("class", "carro")
         div.innerHTML=`Nome: ${c.nome}<br>`
         div.innerHTML+=`Portas: ${c.portas}<br>`
         div.innerHTML+=`Blindagem: ${c.blindagem}<br>`
         div.innerHTML+=`Munição: ${c.municao}<br>`
 
+        btn.innerHTML+="Remover";
+        div.appendChild(btn)
         carros.appendChild(div)
+       
 
     })
     
