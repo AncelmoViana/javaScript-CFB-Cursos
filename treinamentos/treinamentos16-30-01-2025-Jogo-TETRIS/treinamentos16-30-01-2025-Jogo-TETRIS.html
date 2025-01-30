@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pedra, Papel e Tesoura</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Pedra, Papel e Tesoura</h1>
+
+  <div class="game-area">
+    <div class="choices">
+      <button onclick="playRound('pedra')">Pedra</button>
+      <button onclick="playRound('papel')">Papel</button>
+      <button onclick="playRound('tesoura')">Tesoura</button>
+    </div>
+
+    <div class="results">
+      <p>Você escolheu: <span id="user-choice"></span></p>
+      <p>O computador escolheu: <span id="computer-choice"></span></p>
+      <p>Resultado: <span id="result"></span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
